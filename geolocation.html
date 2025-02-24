@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<title>Find your Geolocation!</title>
+<body style="font-family:sans-serif; font-size:22px">
+<style>
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.center {
+  margin: 0;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+</style>
+<div class="center">
+<h1 style= "font-family:monospace; text-align:center; font-size:38px">LATITUDE AND LONGITUDE LOCATER</h1>
+<h3 style= "font-family:sans-serif;color:darkgray">Find your exact geolocation!</h3>
+
+<button onclick="getLocation()" style="background-color:#111111;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 15px;margin: 4px 2px; float:center">Get Coordinates</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+</div>
+</body>
+</html>
